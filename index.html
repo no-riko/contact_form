@@ -9,17 +9,22 @@
 <body>
 
     <h1>お問合せ情報入力</h1>
-    <form action="">
+    <form action="check.php" method="POST">
         <div>
             <label for="name">名前</label>
-            <input id="name" type="text">
+            <input id="name" type="text" name="username">
         </div>
         <div>
             <label for="email">メールアドレス</label>
-            <input id="email" type="text">
+            <input id="email" type="text" name="email">
         </div>
+        <div>
+            <label>お問い合わせ</label>
+            <textarea name="content"></textarea>
+        </div>
+
+        <input type="submit" value="送信">
     </form>
-    <input type="submit" value="送信">
     
 </body>
 </html>
