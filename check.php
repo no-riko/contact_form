@@ -11,12 +11,12 @@
         $usernameResult = $username;
     }
     if($email == " "){
-        $emailResult = "ユーザー名が入力されていません";
+        $emailResult = "メールアドレスが入力されていません";
     }else{
         $emailResult = $email;
     }
     if($content == " "){
-        $contentResult = "ユーザー名が入力されていません";
+        $contentResult = "お問い合わせ内容が入力されていません";
     }else{
         $contentResult = $content;
     }
