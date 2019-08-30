@@ -1,24 +1,38 @@
 <?php
-    //スーパーグローバル変数
-    // -
-    $username = $_POST["username"];
-    $email = $_POST["email"];
-    $content = $_POST["content"];
 
-    if($username == " "){
-        $usernameResult = "ユーザー名が入力されていません";
-    }else{
-        $usernameResult = $username;
+    //送信方法の確認
+    if($_SERVER['REQUEST_METHOD'] == 'GET'){
+        header('Location: index.html');
     }
-    if($email == " "){
-        $emailResult = "メールアドレスが入力されていません";
-    }else{
-        $emailResult = $email;
+
+    //別のファイルを読み込む
+    require_once('functions.php');
+
+    //スーパーグローバル変数
+    //  --- PHPが元々用意している変数
+
+    //XSS(クロスサイトスクリプティング)の対策
+    //エスケープ処理: htmlspecialchars
+    //  --- htmlspecialchars(対象の文字, オプション, 文字コード)
+
+    $username = h($_POST['username']);
+    $email = h($_POST['email']);
+    $content = h($_POST['content']);
+
+    if ($username == '') {
+      $usernameResult = 'ユーザー名が入力されていません';
+    } else {
+      $usernameResult = $username;
     }
-    if($content == " "){
-        $contentResult = "お問い合わせ内容が入力されていません";
-    }else{
-        $contentResult = $content;
+    if ($email == '') {
+      $emailResult = 'メールアドレスが入力されていません';
+    } else {
+      $emailResult = $email;
+    }
+    if ($content == '') {
+      $contentResult = 'お問い合わせ内容が入力されていません';
+    } else {
+      $contentResult = $content;
     }
 ?>
 
@@ -38,8 +52,11 @@
 <p>メールアドレス：<?php echo $_POST["email"]; ?></p>
 <p>内容：<?php echo $_POST['content']; ?></p>
 
-<form action="">
-    <button>戻る</button>
+<form action="thanks.php" method="POST">
+    <input type="hidden" name="username" value="<?php echo $_POST["username"]; ?>">
+    <input type="hidden" name="email" value="<?php echo $_POST["email"]; ?>">
+    <input type="hidden" name="content" value="<?php echo $_POST["content"]; ?>">
+    <button type="button" onclick="history.back();">戻る</button>
     <input type="text" value="OK">
 </form>
     
