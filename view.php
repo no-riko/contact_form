@@ -24,14 +24,14 @@
 
     <?php foreach($results as $result){ ?>
 
-        <p>名前：<?php echo $result['username']; ?></p>
-        <p>メールアドレス：<?php echo $result['email']; ?></p>
-        <p>内容：<?php echo $result['content']; ?></p>
+        <p>名前：<?php echo h($result['username']); ?></p>
+        <p>メールアドレス：<?php echo h($result['email']); ?></p>
+        <p>内容：<?php echo h($result['content']); ?></p>
         <hr>
 
     <?php } ?>
 
-    <p>名前：</p>
+    <!-- <p>名前：</p>
     <p>メールアドレス：</p>
     <p>内容：</p>
     <hr>
@@ -44,7 +44,7 @@
     <p>名前：</p>
     <p>メールアドレス：</p>
     <p>内容：</p>
-    <hr>
+    <hr> -->
 
 
 </body>

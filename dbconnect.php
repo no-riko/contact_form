@@ -1,8 +1,8 @@
 <?php
 
-$host = "localhost";
-$dbname = "contact_from";
-$scharset = "utf8";
+$host = "127.0.0.1";
+$dbname = "contact_form";
+$charset = "utf8";
 $user = "root";
 $password = "";
 $options = [
@@ -10,12 +10,11 @@ $options = [
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
     PDO::ATTR_EMULATE_PREPARES   => false,
 ];
+
 $dsn = "mysql:host=$host;dbname=$dbname;charset=$charset";
 
-echo $sdn;
-
 try{
-    $dbh = new PDO($dsn, $user, $password, $options)
+    $dbh = new PDO($dsn, $user, $password, $options);
 
 }catch(\PDOException $e){
     var_dump($e->getMessage());

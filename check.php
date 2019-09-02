@@ -48,16 +48,17 @@
 
 <h1>入力内容確認</h1>
 
-<p>名前：<?php echo $_POST["username"]; ?></p>
-<p>メールアドレス：<?php echo $_POST["email"]; ?></p>
-<p>内容：<?php echo $_POST['content']; ?></p>
+<p>名前：<?php echo $usernameResult; ?></p>
+<p>メールアドレス：<?php echo $emailResult; ?></p>
+<p>内容：<?php echo $contentResult ?></p>
 
 <form action="thanks.php" method="POST">
-    <input type="hidden" name="username" value="<?php echo $_POST["username"]; ?>">
-    <input type="hidden" name="email" value="<?php echo $_POST["email"]; ?>">
-    <input type="hidden" name="content" value="<?php echo $_POST["content"]; ?>">
+    <input type="hidden" name="username" value="<?php echo $username; ?>">
+    <input type="hidden" name="email" value="<?php echo $email; ?>">
+    <input type="hidden" name="content" value="<?php echo $content; ?>">
+    
     <button type="button" onclick="history.back();">戻る</button>
-    <input type="text" value="OK">
+    <input type="submit" value="OK">
 </form>
     
 </body>
